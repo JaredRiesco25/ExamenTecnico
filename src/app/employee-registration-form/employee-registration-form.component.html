@@ -1,0 +1,37 @@
+<form (ngSubmit)="onSubmit()" class="modal-form">
+    <div class="form-container">
+        <h2>{{tittle}}</h2>
+        <mat-form-field class="full-width">
+            <mat-label for="nombre">Nombre Completo:</mat-label>
+            <input matInput type="text" id="nombre" name="nombre" [(ngModel)]="employee.Nombre" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label for="fechaNacimiento">Fecha de Nacimiento:</mat-label>
+            <input matInput type="date" id="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="employee.FechaNacimiento" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label for="edad">Edad:</mat-label>
+            <input matInput type="number" id="edad" name="edad" [(ngModel)]="employee.Edad" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label for="posicion">Posición:</mat-label>
+            <mat-select id="posicion" name="posicion" [(ngModel)]="employee.Posicion" required>
+                <mat-option value="Empleado">Empleado</mat-option>
+                <mat-option value="Gerente">Gerente</mat-option>
+                <mat-option value="Subgerente">Subgerente</mat-option>
+                <mat-option value="Supervisor">Supervisor</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field [hidden]="isNewUser" class="full-width">
+            <mat-label for="estatus">Estatus:</mat-label>
+            <mat-select id="estatus" name="estatus" [(ngModel)]="employee.Estatus">
+                <mat-option value="true">Activo</mat-option>
+                <mat-option value="false">Inactivo</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div style="margin-right: 25px;">
+        <button mat-raised-button type="button" (click)="onCancel()">Cancelar</button>
+        <button mat-raised-button style="margin-left: 10px;" type="submit">Guardar</button>
+        </div>
+    </div>
+</form>
